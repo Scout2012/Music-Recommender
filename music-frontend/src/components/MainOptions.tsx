@@ -1,10 +1,12 @@
 import React, {FunctionComponent} from 'react'
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { Link } from 'react-router-dom';
 
 type HorizButtonOptions = {
     name: string,
     id: number,
+    route: string,
 }
 
 type HorizButtonProps = {
@@ -18,9 +20,11 @@ export const HorizOptionButton: FunctionComponent<HorizButtonProps> = ({options}
           <Grid container justify="center" spacing={2}>
             {options.map((option) => (
                 <Grid key={option.id} item>
-                    <Button variant="contained" color="primary">
-                        {option.name}
-                    </Button>
+                    <Link to={option.route}>
+                        <Button variant="contained" color="primary">
+                            {option.name}
+                        </Button>
+                    </Link>
                 </Grid>
             ))}
           </Grid>
