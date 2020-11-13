@@ -16,8 +16,6 @@ that Artifical Intelligence is the way of the future. We can already see systems
 being implemented in services offered by companies similar to Spotify.
 
 I was interested in how these systems were created, and this curiosity lead me to a wonderful publication titled
-[*Music Recommendation and Discovery in the Long Tail* by Òscar Celmai](http://ocelma.net/MusicRecommendationBook/index.html)
+[_Music Recommendation and Discovery in the Long Tail_ by Òscar Celmai](http://ocelma.net/MusicRecommendationBook/index.html)
 
 Many of the implementations seen in this project draw inspiration from the methods described in this book.
-
-
