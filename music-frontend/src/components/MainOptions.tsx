@@ -20,7 +20,7 @@ export const HorizOptionButton: FunctionComponent<HorizButtonProps> = ({options}
           <Grid container justify="center" spacing={2}>
             {options.map((option) => (
                 <Grid key={option.id} item>
-                    <Link to={option.route}>
+                    <Link to={option.route} style={{ textDecoration: 'none' }}>
                         <Button variant="contained" color="primary">
                             {option.name}
                         </Button>

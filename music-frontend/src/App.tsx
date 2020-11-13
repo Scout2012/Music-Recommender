@@ -13,24 +13,24 @@ function App() {
         <Router>
           <AppBar>
             <Tabs>
-              <Link to='/'>
+              <Link to='/' style={{ textDecoration: 'none' }}>
                 <Tab label="Home"/>
               </Link>
             </Tabs>
           </AppBar>
-              <HorizOptionButton options={[
-                {
-                  name: "Login",
-                  id: 0,
-                  route: "/login/",
-                },
-                {
-                  name: "Create Account",
-                  id: 1,
-                  route: "/create/",
-                },
-              ]}/>
-
+            <HorizOptionButton options={[
+              {
+                name: "Login",
+                id: 0,
+                route: "/login/",
+              },
+              {
+                name: "Create Account",
+                id: 1,
+                route: "/create/",
+              },
+            ]}/>
+            
             <Route path="/"/>
             <Route path="/login/"/>
             <Route path="/create/"/>
