@@ -1,29 +1,22 @@
 import React from 'react';
-
 import './App.css';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
+
+import { HorizOptionButton } from './components/MainOptions'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Grid container justify="center" spacing={2}>
-                <Grid key={0} item>
-                  <Button variant="contained" color="primary">
-                    Login
-                  </Button>
-                </Grid>
-                <Grid key={1} item>
-                  <Button variant="contained" color="primary">
-                    Create Account
-                  </Button>
-                </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
+        <HorizOptionButton options={[
+          {
+            name: "Login",
+            id: 0,
+          },
+          {
+            name: "Create Account",
+            id: 1,
+          },
+        ]}/>
       </header>
     </div>
   );
