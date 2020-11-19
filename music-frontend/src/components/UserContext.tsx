@@ -1,8 +1,10 @@
-import { createContext } from 'react';
+import { createContext, Dispatch, ReducerAction } from 'react';
+import { IUser } from '../interfaces/IUser'
 
-export const UserContext = createContext({
+let context: IUser = {
     user: "",
-    changeUser: () => {},
-});
+    isLoggedIn: false,
+    dispatch: (A: any): void => { }
+}
 
-export default UserContext;
+export const UserContext = createContext<IUser>(context);

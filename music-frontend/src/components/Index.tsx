@@ -1,14 +1,25 @@
-import React, { useContext } from 'react';
-import UserContext from './UserContext';
+import React, { FunctionComponent } from 'react';
+import { IUser } from '../interfaces/IUser';
+import HorizOptionButton from './MainOptions';
 
-export function Index() {
-
-    const {user} = useContext(UserContext);
+export const Index : FunctionComponent<IUser> = () => {
 
     return (
         <div>
             <h2>Index</h2>
-            <div>{user}</div>
+            
+            <HorizOptionButton options={[
+                {
+                    name: "Login",
+                    id: 0,
+                    route: "/login/",
+                },
+                {
+                    name: "Create Account",
+                    id: 1,
+                    route: "/create/",
+                },
+            ]}/>
         </div>
     )
 }
