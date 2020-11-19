@@ -51,14 +51,15 @@ export const LoginUser = () => {
   
   const VerifyLogIn = async (event: any) => {
     event.preventDefault();
-    let verificationResponse = await fetch('https://postman-echo.com/post/', {
-      method: 'POST',
+    let verificationResponse = await fetch('https://postman-echo.com/get?foo1=bar1&foo2=bar2', {
+      method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({hi: 12})
+      }
     });
+    
+    console.log(verificationResponse)
 
     if(verificationResponse.status === 200 ) {
       dispatch({type: 'login', payload: 'Jacob'}) //verificationResponse.body.username
