@@ -46,9 +46,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const LoginUser = () => {
-  
   const {user, isLoggedIn, dispatch} = useContext(UserContext);
   const classes = useStyles();
+  
+  const VerifyLogIn = async (event: any) => {
+    event.preventDefault();
+    let verificationResponse = await fetch('https://postman-echo.com/post/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({hi: 12})
+    });
+
+    if(verificationResponse.status === 200 ) {
+      dispatch({type: 'login', payload: 'Jacob'}) //verificationResponse.body.username
+    } else {
+      console.log("wrong")
+    }
+  }
+
 
   return (
     <Container component="main" maxWidth="xs">
@@ -57,7 +75,7 @@ export const LoginUser = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={VerifyLogIn}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -90,7 +108,6 @@ export const LoginUser = () => {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={() => { dispatch({type: 'login'}) }}
           >
             Sign In
           </Button>
