@@ -51,18 +51,28 @@ export const LoginUser = () => {
   
   const VerifyLogIn = async (event: any) => {
     event.preventDefault();
-    let verificationResponse = await fetch('https://postman-echo.com/get?foo1=bar1&foo2=bar2', {
-      method: 'GET',
+    let email = event.target.elements.email.value;
+    let password = event.target.elements.password.value;
+
+    let userInfoBody = {
+      email: email,
+      password: password,
+    };
+
+    let verificationResponse = await fetch('https://postman-echo.com/post/', {
+      method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
+        'Content-Type': 'text/plain',
+      },
+      body: JSON.stringify(userInfoBody)
     });
     
     console.log(verificationResponse)
 
     if(verificationResponse.status === 200 ) {
-      dispatch({type: 'login', payload: 'Jacob'}) //verificationResponse.body.username
+      console.log(localStorage.setItem('session', email))
+      dispatch({type: 'login', payload: email}) //verificationResponse.body.username
     } else {
       console.log("wrong")
     }

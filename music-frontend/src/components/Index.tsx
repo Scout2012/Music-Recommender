@@ -3,15 +3,16 @@ import { Button } from '@material-ui/core';
 import { IUser } from '../interfaces/IUser';
 import HorizOptionButton from './MainOptions';
 import { UserContext } from './UserContext';
+import { UserProfile } from './UserProfile';
 
 export const Index : FunctionComponent<IUser> = () => {
     const {user, isLoggedIn, dispatch} = useContext(UserContext);
 
     let mainContent;
-    let buttons;
+    // let buttons;
 
     if(!isLoggedIn) {
-        buttons = <HorizOptionButton options={[
+        mainContent = <HorizOptionButton options={[
             {
                 name: "Login",
                 id: 0,
@@ -25,12 +26,12 @@ export const Index : FunctionComponent<IUser> = () => {
         ]}/>
     } else {
         // mainContent = User Profile Page
+        mainContent = <h1>hi!</h1>
     }
 
     return (
         <div>
-            <h2>Index</h2>
-            {buttons}
+            {/* {buttons} */}
             {mainContent}
         </div>
     )
