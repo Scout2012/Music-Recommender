@@ -19,14 +19,18 @@ def get_playlist_titles(playlist: str) -> List[str]:
     matched_intial_data = find_regex_matches(YT_INITIAL_DATA_RE, source)
     try:
         data = matched_intial_data[0][1]
-        print(data)
-        playlist_videos = json.loads(data)['contents']['twoColumnBrowseResultsRenderer']['tabs'][0]['tabRenderer']['content']['sectionListRenderer']['contents'][0]['itemSectionRenderer']['contents'][0]['playlistVideoListRenderer']['contents']
+        try:
+            playlist_videos = json.loads(data)['contents']['twoColumnBrowseResultsRenderer']['tabs'][0]['tabRenderer']['content']['sectionListRenderer']['contents'][0]['itemSectionRenderer']['contents'][0]['playlistVideoListRenderer']['contents']
+        except TypeError as e:
+            write_to(str(e), LOG_NAME)
+            print(f'Error when attempting to load JSON data. Please inspect {LOG_NAME}')
+            exit()
         for video in playlist_videos:
             video_names.append(video['playlistVideoRenderer']['title']['runs'][0]['text'])
-    except IndexError as e:
+    except BaseException as e:
         write_to(str(e), LOG_NAME)
         print(f'Error when attempting to parse YT_INITIAL_DATA. Please inspect {LOG_NAME}')
-
+        exit()
     return video_names
 
 def find_candidates(seed: List[str]) -> int:
