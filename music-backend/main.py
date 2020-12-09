@@ -1,4 +1,5 @@
 import re
+import sys
 import json
 import requests
 from typing import List
@@ -17,6 +18,9 @@ def get_playlist_titles(playlist: str) -> List[str]:
 
     return video_names
 
-seed_link = 'https://www.youtube.com/playlist?list=PLDIoUOhQQPlXr63I_vwF9GD8sAKh77dWU'
+def find_candidates(seed: List[str]) -> int:
+    print(seed)
+
+seed_link = sys.argv[1]
 seed_title = get_playlist_titles(seed_link)
-print(seed_title)
+find_candidates(seed_title)
