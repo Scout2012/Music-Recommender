@@ -11,9 +11,17 @@ from typing import List, Tuple
 #                  Helpers                     #
 ################################################
 
-def find_regex_matches(expression: str, source: str) -> Tuple[str]:
+def find_regex_matches(expression: str, source: str or List[str]) -> Tuple[str]:
         pattern = re.compile(expression)
-        return re.findall(pattern, source)
+        search = None
+        if(type(source) is type([])):
+            for text in source:
+                search = re.search(pattern, text)
+                if search is not None:
+                    return search
+            return search
+        else:
+            return re.findall(pattern, source)
 
 def write_to(msg: str, filename: str, timestamp=True, indentation=0, is_json=False) -> None:
     ts = datetime.now()
@@ -32,13 +40,24 @@ def write_to(msg: str, filename: str, timestamp=True, indentation=0, is_json=Fal
 
 def tag_playlist(playlist: dict) -> dict:
     tagged = {
-        'tag': str(uuid.uuid4()),
+        'tag': str(uuid.uuid4().urn[9:]),
         'content': playlist
     }
     return tagged
 
+def lookup_playlist(uuid: str) -> dict:
+    playlist_ref_re = uuid + '.json'
+    matched_playlist = find_regex_matches(playlist_ref_re, os.listdir(os.getcwd() + '/pool/'))
+    
+    if matched_playlist is not None:
+        print('Found playlist!')
+        return open(os.path.join(os.getcwd() + '/pool/', matched_playlist.group(0)), 'r')
+    else:
+        print(f'Could find playlist with ID {uuid}')
+        return None
+
 def save_playlist(playlist: dict) -> None:
-    write_to(json.dumps(playlist), f'{playlist["tag"]}.json', timestamp=False, indentation=2, is_json=True)
+    write_to(json.dumps(playlist), f'pool/{playlist["tag"]}.json', timestamp=False, indentation=2, is_json=True)
 
 ################################################
 #              Main Functions                  #
@@ -80,22 +99,39 @@ def find_candidates(seed: List[str]) -> List[str]:
 
 LOG_NAME = 'log.txt'
 VALID_YOUTUBE_PLAYLIST_LINK_RE = r'https://www.youtube.com/playlist\?list=[^\s]+'
+VALID_UUID_REFERENCE = r'([(0-9a-z)]{8}\-[(0-9a-z)]{4}\-[(0-9a-z)]{4}\-[(0-9a-z)]{4}\-[(0-9a-z)]{12})'
 
-try:
-    seed_link = sys.argv[1]
-except IndexError:
-    print('Missing Youtube playlist parameter')
-    print('Usage: python main.py YOUTUBE_PLAYLIST_LINK')
-    exit()
+# Optional UUID reference to old playlist
+uuid_match = find_regex_matches(VALID_UUID_REFERENCE, sys.argv)
+ref_uuid = None
 
-youtube_link_match = find_regex_matches(VALID_YOUTUBE_PLAYLIST_LINK_RE, seed_link)
-if len(youtube_link_match) != 1:
-    print('Invalid Youtube playlist link')
-    exit()
+if uuid_match is not None:
+    ref_uuid = uuid_match.group(0)
+    print(f'Searching for playlist with ID {ref_uuid}')
+    playlist_file = lookup_playlist(ref_uuid)
+    if playlist_file is not None:
+        playlist_data = json.loads(playlist_file.read())["content"]
+        playlist_file.close()
+        # print(type(playlist_data))
+        seed_title = get_playlist_titles(playlist_data)
+        candidates = find_candidates(seed_title)
+    else:
+        print(f'Invalid reference ID given, exiting program.')
+        exit()
+else:
+    youtube_link_match = find_regex_matches(VALID_YOUTUBE_PLAYLIST_LINK_RE, sys.argv)
+    
+    if youtube_link_match is None:
+        print('Missing or invalid Youtube playlist parameter')
+        print('Usage: python main.py [REFERENCE-ID | YOUTUBE_PLAYLIST_LINK]')
+        exit()
 
-playlist_json = get_playlist_json(seed_link)
-seed_title = get_playlist_titles(playlist_json)
-candidates = find_candidates(seed_title)
-tagged_seed = tag_playlist(playlist_json)
-print(f'Tagged your playlist. Your reference ID is {tagged_seed["tag"]}')
-save_playlist(tagged_seed)
+    seed_link = youtube_link_match.group(0)
+    playlist_json = get_playlist_json(seed_link)
+    seed_title = get_playlist_titles(playlist_json)
+    candidates = find_candidates(seed_title)
+    tagged_seed = tag_playlist(playlist_json)
+    save_playlist(tagged_seed)
+
+    print(f'\nSaved your playlist. Your reference ID is {tagged_seed["tag"]}.')
+    print('\nSave this ID if you would like to save time and look your playlist up again.')
