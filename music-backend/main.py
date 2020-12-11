@@ -85,7 +85,10 @@ def get_playlist_json(playlist: str) -> dict:
 def get_playlist_titles(playlist_data: dict) -> List[str]:
     video_names = []
     for video in playlist_data:
-        video_names.append(video['playlistVideoRenderer']['title']['runs'][0]['text'])
+        try:
+            video_names.append(video['playlistVideoRenderer']['title']['runs'][0]['text'])
+        except KeyError:
+            continue
     return video_names
 
 def find_candidates(seed: List[str]) -> List[str]:
@@ -98,7 +101,7 @@ def find_candidates(seed: List[str]) -> List[str]:
     return candidates
 
 LOG_NAME = 'log.txt'
-VALID_YOUTUBE_PLAYLIST_LINK_RE = r'https://www.youtube.com/playlist\?list=[^\s]+'
+VALID_YOUTUBE_PLAYLIST_LINK_RE = r'https://www.youtube.com/playlist\?list=PL[^\s]+'
 VALID_UUID_REFERENCE = r'([(0-9a-z)]{8}\-[(0-9a-z)]{4}\-[(0-9a-z)]{4}\-[(0-9a-z)]{4}\-[(0-9a-z)]{12})'
 
 # Optional UUID reference to old playlist
