@@ -37,6 +37,24 @@ def write_to(msg: str, filename: str, timestamp=True, indentation=0, is_json=Fal
             f.write(msg)
     f.close()
 
+################################################
+#              Main Functions                  #
+################################################
+
+def source_songs(candidates: List[List], seed_titles: List[str], desired_playlist_size=25) -> List[str]:
+    songs = []
+
+    for candidate in candidates:
+        while(candidate[0] > 0):
+            for song in candidate[2]:
+                if song not in seed_titles:
+                    if len(songs) < desired_playlist_size:
+                        songs.append(song)
+                        candidate[0] -= 1
+                    else:
+                        return songs
+    return songs
+
 def tag_playlist(playlist: dict, playlist_id: str) -> dict:
     tagged = {
         'tag': playlist_id,
@@ -58,10 +76,6 @@ def lookup_playlist(playlist_id: str) -> dict:
 def save_playlist(playlist: dict) -> None:
     write_to(json.dumps(playlist), f'pool/{playlist["tag"]}.json', timestamp=False, indentation=2, is_json=True)
 
-################################################
-#              Main Functions                  #
-################################################
-
 def get_playlist_json(playlist: str) -> dict:
     YT_INITIAL_DATA_RE = r'(window["ytInitialData"]|var\s*ytInitialData)\s*=\s*({.+?}.+?);'
     source = requests.get(playlist).text
@@ -80,7 +94,6 @@ def get_playlist_json(playlist: str) -> dict:
         print(f'Error when attempting to parse YT_INITIAL_DATA. Please inspect {LOG_NAME}')
         exit()
 
-
 def get_playlist_titles(playlist_data: dict) -> List[str]:
     video_names = []
     for video in playlist_data:
@@ -96,10 +109,10 @@ def find_candidates(seed: List[str], seed_id: str='') -> List[str]:
     current_playlist_names = None
     for filename in os.listdir(os.getcwd() + '/pool/'):
         priority = 0
-
+        current_playlist_names = None
         # We don't want to use our own playlist as a source.
         # 36 is length of uuid4, the uuid we use.
-        if filename != seed_id:
+        if filename[:-5] != seed_id:
             with open(os.path.join(os.getcwd() + '/pool/', filename), 'r') as f:
                 playlist = json.loads(f.read())
                 tag = playlist["tag"]
@@ -109,10 +122,8 @@ def find_candidates(seed: List[str], seed_id: str='') -> List[str]:
                     if video in current_playlist_names:
                         priority += 1
                 if priority > 0:
-                    print((priority, tag))
-                    candidates.append((priority, tag))
-                pass
-    return candidates
+                    candidates.append([priority, tag, current_playlist_names])
+    return sorted(candidates, reverse=True)
 
 ################################################
 #              Driver Code                     #
@@ -133,13 +144,18 @@ if id_match is not None:
     if playlist_file is not None:
         playlist_data = json.loads(playlist_file.read())["content"]
         playlist_file.close()
-        seed_title = get_playlist_titles(playlist_data)
-        candidates = find_candidates(seed_title, ref_id)
+        seed_titles = get_playlist_titles(playlist_data)
+        candidates = find_candidates(seed_titles, ref_id)
+        songs = source_songs(candidates, seed_titles)
+        print(songs)
+
     elif youtube_link_match is not None:
         seed_link = youtube_link_match.group(0)
         playlist_json = get_playlist_json(seed_link)
-        seed_title = get_playlist_titles(playlist_json)
-        candidates = find_candidates(seed_title)
+        seed_titles = get_playlist_titles(playlist_json)
+        candidates = find_candidates(seed_titles)
+        songs = source_songs(candidates, seed_titles)
+        print(songs)
 
         # Finishing touches, tag and save the playlist in the pool
         tagged_seed = tag_playlist(playlist_json, ref_id)

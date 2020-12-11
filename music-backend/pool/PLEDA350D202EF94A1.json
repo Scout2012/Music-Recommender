@@ -48,7 +48,7 @@
             {
               "text": "funfront",
               "navigationEndpoint": {
-                "clickTrackingParams": "CDAQxjQYACITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+                "clickTrackingParams": "CDAQxjQYACITCOKE166Cxu0CFRQzrQYdddwIig==",
                 "commandMetadata": {
                   "webCommandMetadata": {
                     "url": "/user/funfront",
@@ -73,7 +73,7 @@
           "simpleText": "8:14"
         },
         "navigationEndpoint": {
-          "clickTrackingParams": "CDAQxjQYACITCP2H-52Bxu0CFfQOrQYdSKAAqzIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
+          "clickTrackingParams": "CDAQxjQYACITCOKE166Cxu0CFRQzrQYdddwIijIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
           "commandMetadata": {
             "webCommandMetadata": {
               "url": "/watch?v=nGdFHJXciAQ&list=PLEDA350D202EF94A1&index=1",
@@ -89,7 +89,7 @@
           }
         },
         "lengthSeconds": "494",
-        "trackingParams": "CDAQxjQYACITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+        "trackingParams": "CDAQxjQYACITCOKE166Cxu0CFRQzrQYdddwIig==",
         "isPlayable": true,
         "menu": {
           "menuRenderer": {
@@ -107,7 +107,7 @@
                     "iconType": "ADD_TO_QUEUE_TAIL"
                   },
                   "serviceEndpoint": {
-                    "clickTrackingParams": "CDEQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                    "clickTrackingParams": "CDEQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                     "commandMetadata": {
                       "webCommandMetadata": {
                         "sendPost": true
@@ -117,13 +117,13 @@
                       "signal": "CLIENT_SIGNAL",
                       "actions": [
                         {
-                          "clickTrackingParams": "CDEQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                          "clickTrackingParams": "CDEQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                           "addToPlaylistCommand": {
                             "openMiniplayer": true,
                             "videoId": "nGdFHJXciAQ",
                             "listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
                             "onCreateListCommand": {
-                              "clickTrackingParams": "CDEQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                              "clickTrackingParams": "CDEQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                               "commandMetadata": {
                                 "webCommandMetadata": {
                                   "sendPost": true,
@@ -145,11 +145,11 @@
                       ]
                     }
                   },
-                  "trackingParams": "CDEQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs="
+                  "trackingParams": "CDEQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo="
                 }
               }
             ],
-            "trackingParams": "CDAQxjQYACITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+            "trackingParams": "CDAQxjQYACITCOKE166Cxu0CFRQzrQYdddwIig==",
             "accessibility": {
               "accessibilityData": {
                 "label": "Action menu"
@@ -232,7 +232,7 @@
             {
               "text": "Yervand",
               "navigationEndpoint": {
-                "clickTrackingParams": "CC4QxjQYASITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+                "clickTrackingParams": "CC4QxjQYASITCOKE166Cxu0CFRQzrQYdddwIig==",
                 "commandMetadata": {
                   "webCommandMetadata": {
                     "url": "/user/Yervand",
@@ -257,7 +257,7 @@
           "simpleText": "10:27"
         },
         "navigationEndpoint": {
-          "clickTrackingParams": "CC4QxjQYASITCP2H-52Bxu0CFfQOrQYdSKAAqzIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
+          "clickTrackingParams": "CC4QxjQYASITCOKE166Cxu0CFRQzrQYdddwIijIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
           "commandMetadata": {
             "webCommandMetadata": {
               "url": "/watch?v=Es9RgQGw3Gk&list=PLEDA350D202EF94A1&index=2",
@@ -273,7 +273,7 @@
           }
         },
         "lengthSeconds": "627",
-        "trackingParams": "CC4QxjQYASITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+        "trackingParams": "CC4QxjQYASITCOKE166Cxu0CFRQzrQYdddwIig==",
         "isPlayable": true,
         "menu": {
           "menuRenderer": {
@@ -291,7 +291,7 @@
                     "iconType": "ADD_TO_QUEUE_TAIL"
                   },
                   "serviceEndpoint": {
-                    "clickTrackingParams": "CC8Q_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                    "clickTrackingParams": "CC8Q_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                     "commandMetadata": {
                       "webCommandMetadata": {
                         "sendPost": true
@@ -301,13 +301,13 @@
                       "signal": "CLIENT_SIGNAL",
                       "actions": [
                         {
-                          "clickTrackingParams": "CC8Q_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                          "clickTrackingParams": "CC8Q_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                           "addToPlaylistCommand": {
                             "openMiniplayer": true,
                             "videoId": "Es9RgQGw3Gk",
                             "listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
                             "onCreateListCommand": {
-                              "clickTrackingParams": "CC8Q_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                              "clickTrackingParams": "CC8Q_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                               "commandMetadata": {
                                 "webCommandMetadata": {
                                   "sendPost": true,
@@ -329,11 +329,11 @@
                       ]
                     }
                   },
-                  "trackingParams": "CC8Q_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs="
+                  "trackingParams": "CC8Q_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo="
                 }
               }
             ],
-            "trackingParams": "CC4QxjQYASITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+            "trackingParams": "CC4QxjQYASITCOKE166Cxu0CFRQzrQYdddwIig==",
             "accessibility": {
               "accessibilityData": {
                 "label": "Action menu"
@@ -416,7 +416,7 @@
             {
               "text": "Mari Samuelsen",
               "navigationEndpoint": {
-                "clickTrackingParams": "CCwQxjQYAiITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+                "clickTrackingParams": "CCwQxjQYAiITCOKE166Cxu0CFRQzrQYdddwIig==",
                 "commandMetadata": {
                   "webCommandMetadata": {
                     "url": "/channel/UCOjfwUldxaimbC9C1VmwfYg",
@@ -441,7 +441,7 @@
           "simpleText": "10:51"
         },
         "navigationEndpoint": {
-          "clickTrackingParams": "CCwQxjQYAiITCP2H-52Bxu0CFfQOrQYdSKAAqzIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
+          "clickTrackingParams": "CCwQxjQYAiITCOKE166Cxu0CFRQzrQYdddwIijIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
           "commandMetadata": {
             "webCommandMetadata": {
               "url": "/watch?v=g65oWFMSoK0&list=PLEDA350D202EF94A1&index=3",
@@ -457,7 +457,7 @@
           }
         },
         "lengthSeconds": "651",
-        "trackingParams": "CCwQxjQYAiITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+        "trackingParams": "CCwQxjQYAiITCOKE166Cxu0CFRQzrQYdddwIig==",
         "isPlayable": true,
         "menu": {
           "menuRenderer": {
@@ -475,7 +475,7 @@
                     "iconType": "ADD_TO_QUEUE_TAIL"
                   },
                   "serviceEndpoint": {
-                    "clickTrackingParams": "CC0Q_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                    "clickTrackingParams": "CC0Q_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                     "commandMetadata": {
                       "webCommandMetadata": {
                         "sendPost": true
@@ -485,13 +485,13 @@
                       "signal": "CLIENT_SIGNAL",
                       "actions": [
                         {
-                          "clickTrackingParams": "CC0Q_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                          "clickTrackingParams": "CC0Q_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                           "addToPlaylistCommand": {
                             "openMiniplayer": true,
                             "videoId": "g65oWFMSoK0",
                             "listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
                             "onCreateListCommand": {
-                              "clickTrackingParams": "CC0Q_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                              "clickTrackingParams": "CC0Q_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                               "commandMetadata": {
                                 "webCommandMetadata": {
                                   "sendPost": true,
@@ -513,11 +513,11 @@
                       ]
                     }
                   },
-                  "trackingParams": "CC0Q_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs="
+                  "trackingParams": "CC0Q_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo="
                 }
               }
             ],
-            "trackingParams": "CCwQxjQYAiITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+            "trackingParams": "CCwQxjQYAiITCOKE166Cxu0CFRQzrQYdddwIig==",
             "accessibility": {
               "accessibilityData": {
                 "label": "Action menu"
@@ -600,7 +600,7 @@
             {
               "text": "TheFeynmanParticle",
               "navigationEndpoint": {
-                "clickTrackingParams": "CCoQxjQYAyITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+                "clickTrackingParams": "CCoQxjQYAyITCOKE166Cxu0CFRQzrQYdddwIig==",
                 "commandMetadata": {
                   "webCommandMetadata": {
                     "url": "/user/TheFeynmanParticle",
@@ -625,7 +625,7 @@
           "simpleText": "10:00"
         },
         "navigationEndpoint": {
-          "clickTrackingParams": "CCoQxjQYAyITCP2H-52Bxu0CFfQOrQYdSKAAqzIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
+          "clickTrackingParams": "CCoQxjQYAyITCOKE166Cxu0CFRQzrQYdddwIijIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
           "commandMetadata": {
             "webCommandMetadata": {
               "url": "/watch?v=l-dYNttdgl0&list=PLEDA350D202EF94A1&index=4",
@@ -641,7 +641,7 @@
           }
         },
         "lengthSeconds": "600",
-        "trackingParams": "CCoQxjQYAyITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+        "trackingParams": "CCoQxjQYAyITCOKE166Cxu0CFRQzrQYdddwIig==",
         "isPlayable": true,
         "menu": {
           "menuRenderer": {
@@ -659,7 +659,7 @@
                     "iconType": "ADD_TO_QUEUE_TAIL"
                   },
                   "serviceEndpoint": {
-                    "clickTrackingParams": "CCsQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                    "clickTrackingParams": "CCsQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                     "commandMetadata": {
                       "webCommandMetadata": {
                         "sendPost": true
@@ -669,13 +669,13 @@
                       "signal": "CLIENT_SIGNAL",
                       "actions": [
                         {
-                          "clickTrackingParams": "CCsQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                          "clickTrackingParams": "CCsQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                           "addToPlaylistCommand": {
                             "openMiniplayer": true,
                             "videoId": "l-dYNttdgl0",
                             "listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
                             "onCreateListCommand": {
-                              "clickTrackingParams": "CCsQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                              "clickTrackingParams": "CCsQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                               "commandMetadata": {
                                 "webCommandMetadata": {
                                   "sendPost": true,
@@ -697,11 +697,11 @@
                       ]
                     }
                   },
-                  "trackingParams": "CCsQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs="
+                  "trackingParams": "CCsQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo="
                 }
               }
             ],
-            "trackingParams": "CCoQxjQYAyITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+            "trackingParams": "CCoQxjQYAyITCOKE166Cxu0CFRQzrQYdddwIig==",
             "accessibility": {
               "accessibilityData": {
                 "label": "Action menu"
@@ -784,7 +784,7 @@
             {
               "text": "funfront",
               "navigationEndpoint": {
-                "clickTrackingParams": "CCgQxjQYBCITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+                "clickTrackingParams": "CCgQxjQYBCITCOKE166Cxu0CFRQzrQYdddwIig==",
                 "commandMetadata": {
                   "webCommandMetadata": {
                     "url": "/user/funfront",
@@ -809,7 +809,7 @@
           "simpleText": "3:16"
         },
         "navigationEndpoint": {
-          "clickTrackingParams": "CCgQxjQYBCITCP2H-52Bxu0CFfQOrQYdSKAAqzIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
+          "clickTrackingParams": "CCgQxjQYBCITCOKE166Cxu0CFRQzrQYdddwIijIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
           "commandMetadata": {
             "webCommandMetadata": {
               "url": "/watch?v=1Qr9aX9U9pw&list=PLEDA350D202EF94A1&index=5",
@@ -825,7 +825,7 @@
           }
         },
         "lengthSeconds": "196",
-        "trackingParams": "CCgQxjQYBCITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+        "trackingParams": "CCgQxjQYBCITCOKE166Cxu0CFRQzrQYdddwIig==",
         "isPlayable": true,
         "menu": {
           "menuRenderer": {
@@ -843,7 +843,7 @@
                     "iconType": "ADD_TO_QUEUE_TAIL"
                   },
                   "serviceEndpoint": {
-                    "clickTrackingParams": "CCkQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                    "clickTrackingParams": "CCkQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                     "commandMetadata": {
                       "webCommandMetadata": {
                         "sendPost": true
@@ -853,13 +853,13 @@
                       "signal": "CLIENT_SIGNAL",
                       "actions": [
                         {
-                          "clickTrackingParams": "CCkQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                          "clickTrackingParams": "CCkQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                           "addToPlaylistCommand": {
                             "openMiniplayer": true,
                             "videoId": "1Qr9aX9U9pw",
                             "listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
                             "onCreateListCommand": {
-                              "clickTrackingParams": "CCkQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                              "clickTrackingParams": "CCkQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                               "commandMetadata": {
                                 "webCommandMetadata": {
                                   "sendPost": true,
@@ -881,11 +881,11 @@
                       ]
                     }
                   },
-                  "trackingParams": "CCkQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs="
+                  "trackingParams": "CCkQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo="
                 }
               }
             ],
-            "trackingParams": "CCgQxjQYBCITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+            "trackingParams": "CCgQxjQYBCITCOKE166Cxu0CFRQzrQYdddwIig==",
             "accessibility": {
               "accessibilityData": {
                 "label": "Action menu"
@@ -968,7 +968,7 @@
             {
               "text": "Hakon Samuelsen",
               "navigationEndpoint": {
-                "clickTrackingParams": "CCYQxjQYBSITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+                "clickTrackingParams": "CCYQxjQYBSITCOKE166Cxu0CFRQzrQYdddwIig==",
                 "commandMetadata": {
                   "webCommandMetadata": {
                     "url": "/user/Winterconcertfanclub",
@@ -993,7 +993,7 @@
           "simpleText": "9:30"
         },
         "navigationEndpoint": {
-          "clickTrackingParams": "CCYQxjQYBSITCP2H-52Bxu0CFfQOrQYdSKAAqzIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
+          "clickTrackingParams": "CCYQxjQYBSITCOKE166Cxu0CFRQzrQYdddwIijIKcGxwcF92aWRlb1oUVkxQTEVEQTM1MEQyMDJFRjk0QTGaAQMQ-iw=",
           "commandMetadata": {
             "webCommandMetadata": {
               "url": "/watch?v=Yu6Hr9kd-U0&list=PLEDA350D202EF94A1&index=6",
@@ -1009,7 +1009,7 @@
           }
         },
         "lengthSeconds": "570",
-        "trackingParams": "CCYQxjQYBSITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+        "trackingParams": "CCYQxjQYBSITCOKE166Cxu0CFRQzrQYdddwIig==",
         "isPlayable": true,
         "menu": {
           "menuRenderer": {
@@ -1027,7 +1027,7 @@
                     "iconType": "ADD_TO_QUEUE_TAIL"
                   },
                   "serviceEndpoint": {
-                    "clickTrackingParams": "CCcQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                    "clickTrackingParams": "CCcQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                     "commandMetadata": {
                       "webCommandMetadata": {
                         "sendPost": true
@@ -1037,13 +1037,13 @@
                       "signal": "CLIENT_SIGNAL",
                       "actions": [
                         {
-                          "clickTrackingParams": "CCcQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                          "clickTrackingParams": "CCcQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                           "addToPlaylistCommand": {
                             "openMiniplayer": true,
                             "videoId": "Yu6Hr9kd-U0",
                             "listType": "PLAYLIST_EDIT_LIST_TYPE_QUEUE",
                             "onCreateListCommand": {
-                              "clickTrackingParams": "CCcQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs=",
+                              "clickTrackingParams": "CCcQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo=",
                               "commandMetadata": {
                                 "webCommandMetadata": {
                                   "sendPost": true,
@@ -1065,11 +1065,11 @@
                       ]
                     }
                   },
-                  "trackingParams": "CCcQ_pgEGAIiEwj9h_udgcbtAhX0Dq0GHUigAKs="
+                  "trackingParams": "CCcQ_pgEGAIiEwjihNeugsbtAhUUM60GHXXcCIo="
                 }
               }
             ],
-            "trackingParams": "CCYQxjQYBSITCP2H-52Bxu0CFfQOrQYdSKAAqw==",
+            "trackingParams": "CCYQxjQYBSITCOKE166Cxu0CFRQzrQYdddwIig==",
             "accessibility": {
               "accessibilityData": {
                 "label": "Action menu"
