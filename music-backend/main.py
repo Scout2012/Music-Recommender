@@ -91,13 +91,28 @@ def get_playlist_titles(playlist_data: dict) -> List[str]:
             continue
     return video_names
 
-def find_candidates(seed: List[str]) -> List[str]:
+def find_candidates(seed: List[str], seed_uuid: str='') -> List[str]:
     candidates = []
-    
+    priority = 0
+    current_playlist_names = None
     for filename in os.listdir(os.getcwd() + '/pool/'):
-        with open(os.path.join(os.getcwd() + '/pool/', filename), 'r') as f:
-            # print(json.loads(f.read()))
-            pass
+        priority = 0
+
+        # We don't want to use our own playlist as a source.
+        # 36 is length of uuid4, the uuid we use.
+        if filename[:36] != seed_uuid:
+            with open(os.path.join(os.getcwd() + '/pool/', filename), 'r') as f:
+                playlist = json.loads(f.read())
+                tag = playlist["tag"]
+                videos = playlist["content"]
+                current_playlist_names = get_playlist_titles(videos)
+                for video in seed:
+                    if video in current_playlist_names:
+                        priority += 1
+                if priority > 0:
+                    candidates.append((priority, tag))
+                print((priority, tag))
+                pass
     return candidates
 
 ################################################
@@ -121,7 +136,7 @@ if uuid_match is not None:
         playlist_file.close()
         # print(type(playlist_data))
         seed_title = get_playlist_titles(playlist_data)
-        candidates = find_candidates(seed_title)
+        candidates = find_candidates(seed_title, ref_uuid)
     else:
         print(f'Invalid reference ID given, exiting program.')
         exit()
@@ -137,6 +152,8 @@ else:
     playlist_json = get_playlist_json(seed_link)
     seed_title = get_playlist_titles(playlist_json)
     candidates = find_candidates(seed_title)
+
+    # Finishing touches, tag and save the playlist in the pool
     tagged_seed = tag_playlist(playlist_json)
     save_playlist(tagged_seed)
 
