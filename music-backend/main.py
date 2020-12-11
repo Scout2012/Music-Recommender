@@ -100,6 +100,10 @@ def find_candidates(seed: List[str]) -> List[str]:
             pass
     return candidates
 
+################################################
+#              Driver Code                     #
+################################################
+
 LOG_NAME = 'log.txt'
 VALID_YOUTUBE_PLAYLIST_LINK_RE = r'https://www.youtube.com/playlist\?list=PL[^\s]+'
 VALID_UUID_REFERENCE = r'([(0-9a-z)]{8}\-[(0-9a-z)]{4}\-[(0-9a-z)]{4}\-[(0-9a-z)]{4}\-[(0-9a-z)]{12})'
