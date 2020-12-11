@@ -2,7 +2,6 @@ import os
 import re
 import sys
 import json
-import uuid
 import requests
 from datetime import datetime
 from typing import List, Tuple
@@ -38,22 +37,22 @@ def write_to(msg: str, filename: str, timestamp=True, indentation=0, is_json=Fal
             f.write(msg)
     f.close()
 
-def tag_playlist(playlist: dict) -> dict:
+def tag_playlist(playlist: dict, playlist_id: str) -> dict:
     tagged = {
-        'tag': str(uuid.uuid4().urn[9:]),
+        'tag': playlist_id,
         'content': playlist
     }
     return tagged
 
-def lookup_playlist(uuid: str) -> dict:
-    playlist_ref_re = uuid + '.json'
+def lookup_playlist(playlist_id: str) -> dict:
+    playlist_ref_re = playlist_id + '.json'
     matched_playlist = find_regex_matches(playlist_ref_re, os.listdir(os.getcwd() + '/pool/'))
     
     if matched_playlist is not None:
         print('Found playlist!')
         return open(os.path.join(os.getcwd() + '/pool/', matched_playlist.group(0)), 'r')
     else:
-        print(f'Could find playlist with ID {uuid}')
+        print(f'Could not find playlist with ID {playlist_id}')
         return None
 
 def save_playlist(playlist: dict) -> None:
@@ -91,7 +90,7 @@ def get_playlist_titles(playlist_data: dict) -> List[str]:
             continue
     return video_names
 
-def find_candidates(seed: List[str], seed_uuid: str='') -> List[str]:
+def find_candidates(seed: List[str], seed_id: str='') -> List[str]:
     candidates = []
     priority = 0
     current_playlist_names = None
@@ -100,7 +99,7 @@ def find_candidates(seed: List[str], seed_uuid: str='') -> List[str]:
 
         # We don't want to use our own playlist as a source.
         # 36 is length of uuid4, the uuid we use.
-        if filename[:36] != seed_uuid:
+        if filename != seed_id:
             with open(os.path.join(os.getcwd() + '/pool/', filename), 'r') as f:
                 playlist = json.loads(f.read())
                 tag = playlist["tag"]
@@ -110,8 +109,8 @@ def find_candidates(seed: List[str], seed_uuid: str='') -> List[str]:
                     if video in current_playlist_names:
                         priority += 1
                 if priority > 0:
+                    print((priority, tag))
                     candidates.append((priority, tag))
-                print((priority, tag))
                 pass
     return candidates
 
@@ -121,41 +120,37 @@ def find_candidates(seed: List[str], seed_uuid: str='') -> List[str]:
 
 LOG_NAME = 'log.txt'
 VALID_YOUTUBE_PLAYLIST_LINK_RE = r'https://www.youtube.com/playlist\?list=PL[^\s]+'
-VALID_UUID_REFERENCE = r'([(0-9a-z)]{8}\-[(0-9a-z)]{4}\-[(0-9a-z)]{4}\-[(0-9a-z)]{4}\-[(0-9a-z)]{12})'
+YOUTUBE_ID_RE = r'(PL[a-zA-Z0-9].+)\S'
+# VALID_UUID_REFERENCE = r'([(0-9a-z)]{8}\-[(0-9a-z)]{4}\-[(0-9a-z)]{4}\-[(0-9a-z)]{4}\-[(0-9a-z)]{12})'
 
-# Optional UUID reference to old playlist
-uuid_match = find_regex_matches(VALID_UUID_REFERENCE, sys.argv)
-ref_uuid = None
+id_match = find_regex_matches(YOUTUBE_ID_RE, sys.argv)
+youtube_link_match = find_regex_matches(VALID_YOUTUBE_PLAYLIST_LINK_RE, sys.argv)
 
-if uuid_match is not None:
-    ref_uuid = uuid_match.group(0)
-    print(f'Searching for playlist with ID {ref_uuid}')
-    playlist_file = lookup_playlist(ref_uuid)
+if id_match is not None:
+    ref_id = id_match.group(0)
+    print(f'Searching for playlist with ID {ref_id}')
+    playlist_file = lookup_playlist(ref_id)
     if playlist_file is not None:
         playlist_data = json.loads(playlist_file.read())["content"]
         playlist_file.close()
-        # print(type(playlist_data))
         seed_title = get_playlist_titles(playlist_data)
-        candidates = find_candidates(seed_title, ref_uuid)
+        candidates = find_candidates(seed_title, ref_id)
+    elif youtube_link_match is not None:
+        seed_link = youtube_link_match.group(0)
+        playlist_json = get_playlist_json(seed_link)
+        seed_title = get_playlist_titles(playlist_json)
+        candidates = find_candidates(seed_title)
+
+        # Finishing touches, tag and save the playlist in the pool
+        tagged_seed = tag_playlist(playlist_json, ref_id)
+        save_playlist(tagged_seed)
+
+        print(f'\nSaved your playlist. Your reference ID is {tagged_seed["tag"]}.')
+        print('\nSave this ID if you would like to save time and look your playlist up again.')
     else:
-        print(f'Invalid reference ID given, exiting program.')
+        print('Playlist with that ID does not exist in our system.')
         exit()
 else:
-    youtube_link_match = find_regex_matches(VALID_YOUTUBE_PLAYLIST_LINK_RE, sys.argv)
-    
-    if youtube_link_match is None:
-        print('Missing or invalid Youtube playlist parameter')
-        print('Usage: python main.py [REFERENCE-ID | YOUTUBE_PLAYLIST_LINK]')
-        exit()
-
-    seed_link = youtube_link_match.group(0)
-    playlist_json = get_playlist_json(seed_link)
-    seed_title = get_playlist_titles(playlist_json)
-    candidates = find_candidates(seed_title)
-
-    # Finishing touches, tag and save the playlist in the pool
-    tagged_seed = tag_playlist(playlist_json)
-    save_playlist(tagged_seed)
-
-    print(f'\nSaved your playlist. Your reference ID is {tagged_seed["tag"]}.')
-    print('\nSave this ID if you would like to save time and look your playlist up again.')
+    print('Missing or invalid Youtube playlist parameter')
+    print('Usage: python main.py [YOUTUBE_PLAYLIST_LINK | YOUTUBE_PLAYLIST_LINK_ID]')
+    exit()
