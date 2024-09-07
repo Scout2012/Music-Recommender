@@ -2,7 +2,7 @@
 
 ## Description
 
-This Music Recommendation System is part of a project for CSUF's CPSC 481 Artificial Intelligence
+This Music Recommendation System is part of a project for CSUF's CPSC 481 Artificial Intelligence course.
 
 ## Goal
 
