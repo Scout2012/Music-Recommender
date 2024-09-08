@@ -27,8 +27,8 @@ In our case, a collaborative context will be a playlist, and we will consider a 
 ```sh
 python main.py [SOURCE_LINK | SAVED_CANDIDATE_ID]
 ```
-For the scope of the project, I chose to only support YouTube as a source to reduce initial complexity (this is a proof of concept afterall). As such, SOURCE_LINK would be a link to a playlist of the form
-https://www.youtube.com/playlist?list=<PLAYLIST_ID> and SAVED_CANDIDATE_ID is the PLAYLIST_ID if it has been processed before.
+For the scope of the project, I chose to only support YouTube as a source to reduce initial complexity (this is a proof of concept afterall). As such, `SOURCE_LINK` would be a link to a playlist of the form
+`https://www.youtube.com/playlist?list=<PLAYLIST_ID>` and `SAVED_CANDIDATE_ID` is the `PLAYLIST_ID` if it has been processed before.
 
 
 ### Seed the collaborative pool
