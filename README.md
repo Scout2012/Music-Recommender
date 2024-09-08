@@ -33,7 +33,7 @@ For the scope of the project, I chose to only support YouTube as a source to red
 
 ### Seed the collaborative pool
 
-Playlists entered by the user are saved in order to grow the pool of candidate playlists for future executions of the recommendation system (see [cold starts](https://en.wikipedia.org/wiki/Cold_start_(recommender_systems))) as to why. If you wish to pre-emptively seed the pool with more candidates to start with, run the following if you're on macOS or Linux.
+Playlists entered by the user are saved in order to grow the pool of candidate playlists for future executions of the recommendation system (see [new community cold starts](https://en.wikipedia.org/wiki/Cold_start_(recommender_systems))) as to why. If you wish to pre-emptively seed the pool with more candidates to start with, run the following if you're on macOS or Linux.
 
 ```sh
 ./pool.sh
