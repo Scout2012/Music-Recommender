@@ -1,4 +1,4 @@
-### Music Recommender
+# Music Recommender
 
 ## Description
 
