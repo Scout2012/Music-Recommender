@@ -68,10 +68,10 @@ def lookup_saved_candidate_host(candidate_id: str) -> dict:
     matches = find_regex_matches(candidate_search_string, get_candidate_hosts())
     
     if matches is None:
-        print(f'Could not find playlist with ID {candidate_id}')
+        print(f'Could not find host with ID {candidate_id}')
         return None
 
-    print('Found playlist!')
+    print('Found host!')
     return json.load(open(os.path.join(get_pool_location(), matches.group(0)), 'r'))
 
 def save_candidate_host(source: dict) -> None:
